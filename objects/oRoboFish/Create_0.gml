@@ -3,3 +3,5 @@
 
 cursorRotationSetting = 120;
 fishMode = "cursor"; //setting 
+
+fishWeapon = "unarmed"; //weapon that it can switch between.
