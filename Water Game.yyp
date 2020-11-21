@@ -7,7 +7,7 @@
     {"id":{"name":"oLaserEyes","path":"objects/oLaserEyes/oLaserEyes.yy",},"order":8,},
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},"order":0,},
     {"id":{"name":"sTrident","path":"sprites/sTrident/sTrident.yy",},"order":7,},
-    {"id":{"name":"HUD","path":"objects/HUD/HUD.yy",},"order":10,},
+    {"id":{"name":"oDeathText","path":"objects/oDeathText/oDeathText.yy",},"order":10,},
     {"id":{"name":"sPlayerSwim","path":"sprites/sPlayerSwim/sPlayerSwim.yy",},"order":6,},
     {"id":{"name":"oStaticBullet","path":"objects/oStaticBullet/oStaticBullet.yy",},"order":5,},
     {"id":{"name":"oOceanbed","path":"objects/oOceanbed/oOceanbed.yy",},"order":1,},
