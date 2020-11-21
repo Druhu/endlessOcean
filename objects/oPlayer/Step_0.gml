@@ -13,17 +13,21 @@ else{
 }
 
 if(submerged){
-	grv = 0.1;      //Different fall speeds while in and out of water
+	grv = 0.1;
+	oxygen -= rateOxygenLoss; //Different fall speeds while in and out of water
 }
 else{
 	grv = 0.5;
+	oxygen = 100;
 }
 
 var move = key_right - key_left;
 
 hsp = move * walksp;
 
-vsp = vsp + grv
+if(vsp < termVelocity){
+	vsp = vsp + grv;
+}
 
 if (submerged){
 	if (key_jump)
@@ -40,10 +44,20 @@ else{
 
 
 
-//Collision with oOceanBed
+//Collision with oOceanbed and oBorder. Just copy and paste more if statements
+//	to collide with more objects.
 if (place_meeting(x + hsp, y, oOceanbed))
 {
 	while (!place_meeting(x + sign(hsp), y, oOceanbed))
+	{
+		x = x + sign(hsp);
+	}
+	hsp = 0;
+}
+
+if (place_meeting(x + hsp, y, oBorder))
+{
+	while (!place_meeting(x + sign(hsp), y, oBorder))
 	{
 		x = x + sign(hsp);
 	}
@@ -60,20 +74,23 @@ if (place_meeting(x, y + vsp, oOceanbed))
 	}
 	vsp = 0;
 }
+
+if (place_meeting(x, y + vsp, oBorder))
+{
+	while (!place_meeting(x, y + sign(vsp), oBorder))
+	{
+		y = y + sign(vsp);
+	}
+	vsp = 0;
+}
+
 y = y + vsp;
 
 
 
 
 //Animation
-if (!place_meeting(x, y + 1, oOceanbed))
-{
-	sprite_index = sPlayerJump;
-	image_speed = 0;
-	if (sign(vsp) > 0) image_index = 1; else image_index = 0;
-}
-else
-{
+if (place_meeting(x, y + 1, oOceanbed) || place_meeting(x, y + 1, oBorder)){
 	image_speed = 1;
 	if (hsp == 0)
 	{
@@ -84,5 +101,26 @@ else
 		sprite_index = sPlayerRun;
 	}
 }
+else{
+	if(sign(vsp) < 0){
+		image_speed = 1;
+		sprite_index = sPlayerSwim;
+	}
+	else{
+		image_speed = 0;
+		sprite_index = 2;
+		sprite_index = sPlayerSwim;
+	}
+}
 
 if (hsp != 0) image_xscale = sign(hsp);
+
+//invulnerability
+if(invulnerability > 0){
+	invulnerability--;
+}
+
+if(lives <= 0){
+	instance_destroy();
+	room_goto(rDead);
+}
