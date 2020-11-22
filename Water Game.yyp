@@ -12,6 +12,7 @@
     {"id":{"name":"oStaticBullet","path":"objects/oStaticBullet/oStaticBullet.yy",},"order":5,},
     {"id":{"name":"oOceanbed","path":"objects/oOceanbed/oOceanbed.yy",},"order":1,},
     {"id":{"name":"sWater","path":"sprites/sWater/sWater.yy",},"order":1,},
+    {"id":{"name":"sStaticBulet","path":"sprites/sStaticBulet/sStaticBulet.yy",},"order":14,},
     {"id":{"name":"oFishEnemy","path":"objects/oFishEnemy/oFishEnemy.yy",},"order":9,},
     {"id":{"name":"oOxygenHelmet","path":"objects/oOxygenHelmet/oOxygenHelmet.yy",},"order":11,},
     {"id":{"name":"sBubblePlant","path":"sprites/sBubblePlant/sBubblePlant.yy",},"order":12,},
@@ -30,6 +31,7 @@
     {"id":{"name":"sLaser","path":"sprites/sLaser/sLaser.yy",},"order":9,},
     {"id":{"name":"sOceanBed","path":"sprites/sOceanBed/sOceanBed.yy",},"order":2,},
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},"order":0,},
+    {"id":{"name":"oGameClock","path":"objects/oGameClock/oGameClock.yy",},"order":14,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [

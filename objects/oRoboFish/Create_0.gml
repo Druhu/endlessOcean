@@ -4,4 +4,7 @@
 cursorRotationSetting = 120;
 fishMode = "cursor"; //setting 
 
-fishWeapon = "laser"; //weapon that it can switch between.
+fishWeapon = "trail"; //weapon that it can switch between.
+
+trailLevel = 1; // this will start at 0, get to 1 once you first find it, and increase when you find an upgrade.
+					//NOTE: could also unify all upgrades into a "fireRate" stat.
