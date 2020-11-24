@@ -8,7 +8,7 @@ alertLevel = 0;
 
 AIMode = "patrol"
 patrolA = x - 800;
-patrolB = x + 800;
-patrolY = y;
+patrolB = x + 800; ///will patrol horizontally
+patrolY = y;       /// but not vertically
 targetX = patrolA;
 targetY = patrolY;
