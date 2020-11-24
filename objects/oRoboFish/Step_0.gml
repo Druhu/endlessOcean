@@ -36,3 +36,4 @@ case "pursue":
 	break;
 
 }
+trailLevel = oPlayer.trailLevel;

@@ -1,3 +1,3 @@
-hsp = 1;
-hp = 100;
+hsp = 3;
+hp = 500;
 timer = random(100);

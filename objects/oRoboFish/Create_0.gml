@@ -6,5 +6,5 @@ fishMode = "cursor"; //setting
 
 fishWeapon = "trail"; //weapon that it can switch between.
 
-trailLevel = 1; // this will start at 0, get to 1 once you first find it, and increase when you find an upgrade.
+trailLevel = 0; // this will start at 0, get to 1 once you first find it, and increase when you find an upgrade.
 					//NOTE: could also unify all upgrades into a "fireRate" stat.

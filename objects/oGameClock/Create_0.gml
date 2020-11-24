@@ -3,4 +3,6 @@
 global.g_time = (3600 * room_speed);
 
 
-//audio_play_sound(bgm_Ambient, 3, true);
+audio_play_sound(bgm_Ambient, 3, true);
+
+	timer = floor(random(2400));

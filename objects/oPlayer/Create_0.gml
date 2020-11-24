@@ -11,6 +11,10 @@ flash = 0;
 oxygen = 100;
 rateOxygenLoss = 0.05;
 hasOxygenHelmet = false;
+trailLevel = 0;
+laserLevel = 0;
+toothLevel = 0;
+launcherLevel = 0;
 
 
 
