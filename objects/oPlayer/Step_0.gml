@@ -25,6 +25,13 @@ var move = key_right - key_left;
 
 hsp = move * walksp;
 
+if(submerged){
+	termVelocity = 5;
+}
+else{
+	termVelocity = 25;
+}
+
 if(vsp < termVelocity){
 	vsp = vsp + grv;
 }
@@ -36,7 +43,8 @@ if (submerged){
 	}
 }
 else{
-	if (place_meeting(x, y + 1, oOceanbed)) && (key_jump)
+	if ((place_meeting(x, y + 1, oOceanbed) || place_meeting(x, y + 1, oWall)
+		|| place_meeting(x, y + 1, oFloor)) && (key_jump))
 	{
 		vsp = -10;
 	}
@@ -64,6 +72,24 @@ if (place_meeting(x + hsp, y, oBorder))
 	hsp = 0;
 }
 
+if (place_meeting(x + hsp, y, oWall))
+{
+	while (!place_meeting(x + sign(hsp), y, oWall))
+	{
+		x = x + sign(hsp);
+	}
+	hsp = 0;
+}
+
+if (place_meeting(x + hsp, y, oFloor))
+{
+	while (!place_meeting(x + sign(hsp), y, oFloor))
+	{
+		x = x + sign(hsp);
+	}
+	hsp = 0;
+}
+
 x = x + hsp;
 
 if (place_meeting(x, y + vsp, oOceanbed))
@@ -84,13 +110,31 @@ if (place_meeting(x, y + vsp, oBorder))
 	vsp = 0;
 }
 
+if (place_meeting(x, y + vsp, oWall))
+{
+	while (!place_meeting(x, y + sign(vsp), oWall))
+	{
+		y = y + sign(vsp);
+	}
+	vsp = 0;
+}
+
+if (place_meeting(x, y + vsp, oFloor))
+{
+	while (!place_meeting(x, y + sign(vsp), oFloor))
+	{
+		y = y + sign(vsp);
+	}
+	vsp = 0;
+}
 y = y + vsp;
 
 
 
 
 //Animation
-if (place_meeting(x, y + 1, oOceanbed) || place_meeting(x, y + 1, oBorder)){
+if (place_meeting(x, y + 1, oOceanbed) || place_meeting(x, y + 1, oBorder)
+	|| place_meeting(x, y + 1, oWall) || place_meeting(x, y + 1, oFloor)){
 	image_speed = 1;
 	if (hsp == 0)
 	{
@@ -102,7 +146,7 @@ if (place_meeting(x, y + 1, oOceanbed) || place_meeting(x, y + 1, oBorder)){
 	}
 }
 else{
-	if(sign(vsp) < 0){
+	if(sign(vsp) < 0 && submerged){
 		image_speed = 1;
 		sprite_index = sPlayerSwim;
 	}

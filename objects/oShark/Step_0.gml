@@ -58,7 +58,7 @@ switch(AIMode){
 }
 
 if (hspeed < 0){                       // this makes the shark turn around
-	image_xscale = 2;
+	image_xscale = 1;
 }
-else{ image_xscale = -2;}
+else{ image_xscale = -1;}
 
