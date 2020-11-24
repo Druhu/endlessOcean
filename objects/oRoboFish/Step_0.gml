@@ -22,7 +22,7 @@ case "pursue":
 		
 		case "trail":      //Trail: lays down a trail of static bullets if its moving fast enough
 			if(speed > 3 && (global.g_time % 2) == 0){
-				for(i = 0; i < ((speed/2) * trailLevel); i++){
+				for(i = 0; i < ((speed/4) * trailLevel); i++){
 					instance_create_layer(x - (20 * cos(degtorad(direction))) + random_range(-10,10),y + (20 * sin(degtorad(direction))) + random_range(-10,10),"FishEnemy",oStaticBullet);
 				}
 			}

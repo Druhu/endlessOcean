@@ -1,5 +1,5 @@
-if(oxygen < 75){
-	oxygen += 25;
+if(oxygen < 85){
+	oxygen += 15;
 }
 else{
 	oxygen = 100;
