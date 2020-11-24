@@ -4,14 +4,14 @@
 if(global.g_time % 60 == 30){
 	switch(AIMode){
 		case "patrol":
-			if (distance_to_object(oPlayer) < (baseDetectRadius + (10 * alertLevel))){
+			if (distance_to_object(oPlayer) < (baseDetectRadius + (100 * alertLevel))){
 				AIMode = "chase";
 				}
 		break;
 		
 		case "chase":
 		
-			if (distance_to_object(oPlayer) >= (baseDetectRadius + (10 * alertLevel))){
+			if (distance_to_object(oPlayer) >= (baseDetectRadius + (100 * alertLevel))){
 				AIMode = "patrol";
 				targetX = patrolA;
 				targetY = patrolY;
@@ -28,7 +28,7 @@ switch(AIMode){
 	case "chase":
 		targetX = oPlayer.x;
 		targetY = oPlayer.y;
-		if (distance_to_point(targetX,targetY) < (baseDetectRadius + (10 * alertLevel))){
+		if (distance_to_point(targetX,targetY) < (baseDetectRadius + (100 * alertLevel))){
 			direction = point_direction(x, y, targetX, targetY);
 			speed = 2;
 			hspeed *= 2; //sharks move faster horizontally
@@ -61,4 +61,24 @@ if (hspeed < 0){                       // this makes the shark turn around
 	image_xscale = 1;
 }
 else{ image_xscale = -1;}
+
+if(!submerged){
+y+=10;//Different fall speeds while in and out of water
+speed = 0;
+}
+
+if(global.g_time % (3 * room_speed) == 2){
+	if(audio_is_playing(sfx_Swim)){
+		if(alertLevel < 6){
+		alertLevel++;
+	}
+	}
+	else{
+		if(alertLevel > 0){
+		
+		alertLevel--;
+		}
+	}
+}
+
 

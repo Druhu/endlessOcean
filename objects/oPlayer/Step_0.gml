@@ -39,7 +39,12 @@ if(vsp < termVelocity){
 if (submerged){
 	if (key_jump)
 	{
-		vsp = -5;
+		audio_play_sound(sfx_Swim, 1,false);
+		for(i = 0; i < 5; i++){
+			if(vsp >= -5){
+			vsp --;
+			}
+		}
 	}
 }
 else{
@@ -168,3 +173,11 @@ if(lives <= 0){
 	instance_destroy();
 	room_goto(rDead);
 }
+
+if(invulnerability <= 1 && oxygen <= 0){
+lives --;
+invulnerability = room_speed;
+flash = 3;
+}
+
+if (speed > 0){speed--;}

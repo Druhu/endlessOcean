@@ -11,3 +11,7 @@ flash = 0;
 oxygen = 100;
 rateOxygenLoss = 0.05;
 hasOxygenHelmet = false;
+
+
+
+	

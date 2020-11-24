@@ -1,1 +1,1 @@
-cooldown = 600;
+cooldown = 200 + random (200);
